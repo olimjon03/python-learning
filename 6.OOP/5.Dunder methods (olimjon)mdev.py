@@ -217,6 +217,8 @@ class Subject:
     # 4.Minus (-) operatori yordamida fandan talaba olib tashlash metodini yozing 
     #(bunda talabaning passport raqami yoki ID raqami bo'yicha topib, olib tashlash mumkin)
     def __sub__(self,student):
+        
+            
         self.students.remove(student)
             
                 
@@ -233,15 +235,80 @@ math1[:]
 
 
 
+#5
 
+class Point:
+    def __init__(self,x1,y1):
+        self.x1=x1
+        self.y1=y1
+    def __repr__(self):
+        return f" {self.x1},{self.y1}"
+    
+    
+    def __add__(self,other):
+        return Point(self.x1+other.x1,self.y1+other.y1)
+    def __sub__(self,other):
+        return Point(self.x1-other.x1,self.y1-other.y1)
 
+v1=Point(10,20)
+v2=Point(10,20)
 
+print(v1+v2)
+print(v1-v2)
+print(v1,v2)
 
+#6
 
+class Student ():
+    def __init__(self,name,id_num,gpa):
+        self.name=name
+        self.id_num=id_num
+        self.gpa=gpa
+        
+    def __repr__(self):
+        return f"name :{self.name} id_num :{self.id_num}"
+    def __lt__(self,student):
+        return self.gpa < student.gpa
 
+student1 =Student('ali',232343,4)
 
+student2 =Student('ali',232233,3)
 
+student1>student2
 
+#7
+class Group():
+    def __init__(self,name):
+        self.name=name
+        self.studentss=[]
+    def __repr__(self):
+        return f" leaders : {self.studentss}"
+    def __add__(self,student):
+         self.studentss.append(student)
+         return self
+    
+    def __sub__(self,name):
+        for student in self.studentss:
+            if student.name==name:
+                self.studentss.remove(student)
+                return self
+        print('bunday ism topilmadi')
+        return self
+        
+    def __len__(self):
+        return len(self.studentss)
+    def __contains__(self,student):
+        return student in self.studentss
+
+    
+
+gr1=Group('leaders')
+gr1
+gr1+student1
+gr1-'ali'
+gr1-'vali'
+
+    
 
 
 
