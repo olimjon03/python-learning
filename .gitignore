@@ -1,1 +1,13 @@
 .DS_Store
+
+# Python generated files and local secrets
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.session
+*.session-journal
+.pytest_cache/
